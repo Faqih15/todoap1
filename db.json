@@ -1,0 +1,34 @@
+{
+  "post": [
+    {
+      "label": "satu",
+      "status": "todo",
+      "warna": 12,
+      "id": 1
+    },
+    {
+      "label": "dua",
+      "status": "todo",
+      "warna": 2,
+      "id": 2
+    },
+    {
+      "label": "tiga",
+      "status": "todo",
+      "warna": 7,
+      "id": 3
+    },
+    {
+      "label": "empat",
+      "status": "todo",
+      "warna": 0,
+      "id": 4
+    },
+    {
+      "label": "lima",
+      "status": "todo",
+      "warna": 0,
+      "id": 5
+    }
+  ]
+}
