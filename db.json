@@ -3,32 +3,14 @@
     {
       "label": "satu",
       "status": "todo",
-      "warna": 12,
+      "warna": 43,
       "id": 1
     },
     {
       "label": "dua",
       "status": "todo",
-      "warna": 2,
+      "warna": 1,
       "id": 2
-    },
-    {
-      "label": "tiga",
-      "status": "todo",
-      "warna": 7,
-      "id": 3
-    },
-    {
-      "label": "empat",
-      "status": "todo",
-      "warna": 0,
-      "id": 4
-    },
-    {
-      "label": "lima",
-      "status": "todo",
-      "warna": 0,
-      "id": 5
     }
   ]
 }

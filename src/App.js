@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { HiPlus } from "react-icons/hi";
 import Card from "./Card";
 import axios from "axios";
-import Tabel from "./Tabel";
+// import Tabel from "./Tabel";
 
 export default function App() {
   const [todo, tambahtodo] = useState([]);
@@ -51,9 +51,16 @@ export default function App() {
       <div className="p-10 mx-auto w-full">
         <div className="text-xl text-black font-extrabold">TODO</div>
         <div className=" space-y-5 m-5 w-full">
+          {/* <Tabel
+            fungsiTambah={fungsiTambah}
+            ubah={ubah}
+            todo={todo}
+            tambahtodo={tambahtodo}
+            warna={warna}
+          /> */}
           {todo?.map((data, idx) => {
             return (
-              <Tabel
+              <Card
                 key={idx}
                 bgColor={warna[data.warna % warna.length]}
                 ubah={ubah}
@@ -62,7 +69,6 @@ export default function App() {
               />
             );
           })}
-
           <form
             onSubmit={fungsiTambah}
             className="outline-none bg-white flex items-center space-x-5 border border-black px-4 py-2 rounded"
