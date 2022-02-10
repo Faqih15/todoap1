@@ -5,40 +5,60 @@ import axios from "axios";
 // import Tabel from "./Tabel";
 
 export default function App() {
-  const [todo, tambahtodo] = useState([]);
-  const [tabel, plustabel] = useState([]);
-  const [warna, gantiwarna] = useState(["red", "orange", "lime"]);
+  const [card, tambahcard] = useState([]);
+  // const [tabel, plustabel] = useState([]);
+  const [warna, gantiwarna] = useState([
+    "red",
+    "orange",
+    "lime",
+    "purple",
+    "yellow",
+  ]);
 
   useEffect(() => {
+    // console.log("anjay");
     const url = "http://localhost:3005/post";
     axios.get(url).then((respon) => {
-      tambahtodo(respon.data);
+      tambahcard(respon.data);
     });
   }, []);
 
+  // const ganti = (i) => {
+  //   // const url = "http://localhost:3005/post";
+  //   const ccard = JSON.parse(JSON.stringify(card));
+  //   ccard[i].warna++;
+  //   gantiwarna(ccard);
+  // };
+
+  // const ganti = (i) => {
+  //   gantiwarna(warna + 1);
+  // };
+
+  // console.log(card,"card");
   const ubah = (id, i) => {
     const url = "http://localhost:3005/post/" + id;
-    const ctodo = JSON.parse(JSON.stringify(todo));
-    const peyek = ctodo[i];
-    console.log(peyek);
+    const ccard = JSON.parse(JSON.stringify(card));
+    const peyek = ccard[i];
+    // console.log(ccard[i]);
+    // console.log(warna[2]);
     axios.patch(url, { warna: peyek.warna + 1 }).then((respon) => {
       axios.get("http://localhost:3005/post").then((respon) => {
-        tambahtodo(respon.data);
+        tambahcard(respon.data);
       });
     });
   };
 
-  const fungsiTambah = (data) => {
+  const fungsipluscard = (data) => {
     const label = data.target.label.value;
     const url = "http://localhost:3005/post";
-    const up = { label, status: "todo", warna: 0 };
+    const up = { label, status: "card", warna: 0 };
     axios
       .post(url, up)
       .then((respon) => {
         axios
           .get(url)
           .then((respon) => {
-            tambahtodo(respon.data);
+            tambahcard(respon.data);
           })
           .catch((y) => {});
       })
@@ -46,19 +66,24 @@ export default function App() {
     data.target.label.value = "";
   };
 
+  // const fungsiplustabel = (data) => {
+  //   const hasil = data.target.hasil.value;
+  //   console.log(hasil);
+  // };
+
   return (
     <div className="grid grid-cols-2 gap-10">
       <div className="p-10 mx-auto w-full">
-        <div className="text-xl text-black font-extrabold">TODO</div>
+        <div className="text-xl text-black font-extrabold">Todo</div>
         <div className=" space-y-5 m-5 w-full">
           {/* <Tabel
-            fungsiTambah={fungsiTambah}
+            fungsipluscard={fungsipluscard}
             ubah={ubah}
-            todo={todo}
-            tambahtodo={tambahtodo}
+            card={card}
+            tambahcard={tambahcard}
             warna={warna}
           /> */}
-          {todo?.map((data, idx) => {
+          {card?.map((data, idx) => {
             return (
               <Card
                 key={idx}
@@ -66,11 +91,12 @@ export default function App() {
                 ubah={ubah}
                 idx={idx}
                 data={data}
+                warna={warna}
               />
             );
           })}
           <form
-            onSubmit={fungsiTambah}
+            onSubmit={fungsipluscard}
             className="outline-none bg-white flex items-center space-x-5 border border-black px-4 py-2 rounded"
           >
             <HiPlus />
@@ -89,22 +115,39 @@ export default function App() {
   );
 }
 
-// const fungsitambah = (e) => {
+// const fungsipluscard = (e) => {
 //   e.preventDefault();
 //   const label = e.target.label.value;
-//   const ctodo = JSON.parse(JSON.stringify(todo));
-//   ctodo.push({ label, warna: 0 });
-//   tambahtodo(ctodo);
+//   const ccard = JSON.parse(JSON.stringify(card));
+//   ccard.push({ label, warna: 0 });
+//   tambahcard(ccard);
 //   e.target.label.value = "";
-// };
-
-// const ganti = () => {
-//   setindex(index + 1);
 // };
 
 // const ganti = (i) => {
 //   const url = "http://localhost:3005/post";
-//   const ctodo = JSON.parse(JSON.stringify(todo));
-//   ctodo[i].warna++;
-//   tambahtodo(ctodo);
+//   const ccard = JSON.parse(JSON.stringify(card));
+//   ccard[i].warna++;
+//   tambahcard(ccard);
 // };
+
+// const ganti = () => {
+//   gantiwarna(warna + 1);
+// };
+
+{
+  /* <div>
+  <form
+    onSubmit={fungsiplustabel}
+    className="outline-none bg-white flex items-center space-x-5 border border-black px-4 py-2 rounded"
+  >
+    <input
+      name="hasil"
+      type="text"
+      className="outline-none w-full"
+      placeholder="Ketik Group/Tabel baru"
+      autoComplete="off"
+    ></input>
+  </form>
+</div>; */
+}

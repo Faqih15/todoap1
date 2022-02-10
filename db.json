@@ -2,15 +2,24 @@
   "post": [
     {
       "label": "satu",
-      "status": "todo",
-      "warna": 43,
+      "status": "card",
+      "warna": 75,
       "id": 1
     },
     {
       "label": "dua",
-      "status": "todo",
-      "warna": 1,
+      "status": "card",
+      "warna": 30,
       "id": 2
+    },
+    {
+      "label": "tigaa",
+      "status": "card",
+      "warna": 15,
+      "id": 3
     }
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
