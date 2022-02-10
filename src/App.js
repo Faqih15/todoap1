@@ -16,32 +16,18 @@ export default function App() {
   ]);
 
   useEffect(() => {
-    // console.log("anjay");
     const url = "http://localhost:3005/post";
     axios.get(url).then((respon) => {
       tambahcard(respon.data);
     });
   }, []);
 
-  // const ganti = (i) => {
-  //   // const url = "http://localhost:3005/post";
-  //   const ccard = JSON.parse(JSON.stringify(card));
-  //   ccard[i].warna++;
-  //   gantiwarna(ccard);
-  // };
-
-  // const ganti = (i) => {
-  //   gantiwarna(warna + 1);
-  // };
-
-  // console.log(card,"card");
-  const ubah = (id, i) => {
-    const url = "http://localhost:3005/post/" + id;
-    const ccard = JSON.parse(JSON.stringify(card));
-    const peyek = ccard[i];
-    // console.log(ccard[i]);
-    // console.log(warna[2]);
-    axios.patch(url, { warna: peyek.warna + 1 }).then((respon) => {
+  const ubah = (id) => {
+    const url = "http://localhost:3005/post/" + id.id;
+    // const ccard = JSON.parse(JSON.stringify(card));
+    // const card = ccard[index]
+    // console.log(id.warna);
+    axios.patch(url, { warna: id.warna + 1 }).then((respon) => {
       axios.get("http://localhost:3005/post").then((respon) => {
         tambahcard(respon.data);
       });
@@ -49,6 +35,7 @@ export default function App() {
   };
 
   const fungsipluscard = (data) => {
+    data.preventDefault();
     const label = data.target.label.value;
     const url = "http://localhost:3005/post";
     const up = { label, status: "card", warna: 0 };
@@ -65,11 +52,6 @@ export default function App() {
       .catch((x) => {});
     data.target.label.value = "";
   };
-
-  // const fungsiplustabel = (data) => {
-  //   const hasil = data.target.hasil.value;
-  //   console.log(hasil);
-  // };
 
   return (
     <div className="grid grid-cols-2 gap-10">
@@ -151,3 +133,21 @@ export default function App() {
   </form>
 </div>; */
 }
+
+// const ganti = (i) => {
+//   // const url = "http://localhost:3005/post";
+//   const ccard = JSON.parse(JSON.stringify(card));
+//   ccard[i].warna++;
+//   gantiwarna(ccard);
+// };
+
+// const ganti = (i) => {
+//   gantiwarna(warna + 1);
+// };
+
+// console.log(card,"card");
+
+// const fungsiplustabel = (data) => {
+//   const hasil = data.target.hasil.value;
+//   console.log(hasil);
+// };

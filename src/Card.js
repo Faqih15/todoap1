@@ -13,10 +13,10 @@ export default function Card(tello) {
         className="bg-blue-500 hover:bg-blue-700 text-black text-xs font-bold
         py-1 px-2 rounded"
         onClick={() => {
-          tello.ubah(tello.data.id, tello.idx);
+          tello.ubah(tello.data);
           console.log(tello.warna[(tello.data.warna % tello.warna.length) + 1]);
           // 
-          console.log(14 % 5);
+          // console.log(14 % 5);
           // console.log(5 % 5);
           // console.log(5 % 3);
           // console.log(5 % 2);

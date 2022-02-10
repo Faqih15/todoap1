@@ -3,19 +3,19 @@
     {
       "label": "satu",
       "status": "card",
-      "warna": 75,
+      "warna": 2,
       "id": 1
     },
     {
       "label": "dua",
       "status": "card",
-      "warna": 30,
+      "warna": 0,
       "id": 2
     },
     {
-      "label": "tigaa",
+      "label": "tiga",
       "status": "card",
-      "warna": 15,
+      "warna": 0,
       "id": 3
     }
   ],
